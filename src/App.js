@@ -1,8 +1,9 @@
+import SignIn from './pages/Sign-In';//import Sign In page
 
 function App() {
   return (
     <div>
-      <h1>njknjkn</h1>
+      <SignIn/>
     </div>
   );
 }
