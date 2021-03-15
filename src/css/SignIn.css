@@ -14,6 +14,10 @@
 }
 
 .textSpace {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-top: 100px;
+}
+
+.alignItems {
+    align-items: center;
 }

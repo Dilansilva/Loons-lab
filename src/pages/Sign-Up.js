@@ -74,7 +74,7 @@ export default function SignUp() {
                                     variant="primary" 
                                     type="submit"
                                     block>
-                                 Log-In  
+                                 Create Account  
                                 </Button>
                             </div>
 
