@@ -22,6 +22,7 @@ const SignIn = () => {
     return (
         <Jumbotron className="backgroundColor" fluid>
         <Container>
+        <h1 className="textAlign"><b>Sign-In</b></h1><br></br>
             <Row>
                 <Col sm={7}>
                     <Image

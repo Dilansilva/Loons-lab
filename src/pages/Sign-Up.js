@@ -33,6 +33,7 @@ export default function SignUp() {
         <div>
         <Jumbotron className="backgroundColor" fluid>
         <Container>
+        <h1 className="textAlign"><b>Sign-Up</b></h1><br></br>
             <Row>
                 <Col sm={7}>
                     <Image
