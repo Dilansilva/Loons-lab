@@ -10,10 +10,10 @@ import '../css/SignIn.css';
 
 export default function EmailVerfy() {
     return (
-        <div className="textAlign textSpace ">
+        <div className="textAlign textSpace">
            
             <Col className = "alignItems">
-                <Jumbotron style={{ width:'400px' }}>
+                <Jumbotron style={{width:'500px'}}>
                     <Form>
 
                         <Form.Row>
