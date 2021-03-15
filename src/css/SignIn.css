@@ -1,0 +1,19 @@
+.backgroundColor {
+    color : #725844;
+    background-color:  #50b9d6;
+    margin-top: 5%;
+}
+
+.imageBackGround {
+    width: 400px;
+    height: 300px;
+}
+
+.textAlign {
+    text-align: center;
+}
+
+.textSpace {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
