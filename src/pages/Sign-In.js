@@ -26,7 +26,7 @@ const SignIn = () => {
                 
                  <Col sm={3}>
                     <h3><b>Search Weather forcast here</b></h3>
-                        
+
                 </Col>
          
                 <Col sm={4}>
@@ -70,8 +70,6 @@ const SignIn = () => {
                           </Form>
 
                             <div className="textAlign"> 
-                                <a href="/emailenter" className="textSpace">Forget Password?</a>
-                                    <br></br>
                                 <a href="/signup" className="textSpace">Don't Have account?</a>
                             </div>
 
