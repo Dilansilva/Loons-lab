@@ -11,7 +11,7 @@ import { Button,
         Card } from 'react-bootstrap';
 
 import '../css/SignIn.css';
-import image from '../images/pharmacy.jpg';//import image
+import image from '../images/weather_2x.jpg';//import image
 
 const SignIn = () => {
 
@@ -24,12 +24,16 @@ const SignIn = () => {
         <Container>
             <Row>
                 
-                 <Col sm={3}>
+                 {
+                     /*
+                     <Col sm={2}>
                     <h3><b>Search Weather forcast here</b></h3>
 
                 </Col>
+                      */
+                 }
          
-                <Col sm={4}>
+                <Col sm={7}>
                     <Image
                         src={image}
                         className="imageBackGround"
