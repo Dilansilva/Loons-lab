@@ -23,16 +23,6 @@ const SignIn = () => {
         <Jumbotron className="backgroundColor" fluid>
         <Container>
             <Row>
-                
-                 {
-                     /*
-                     <Col sm={2}>
-                    <h3><b>Search Weather forcast here</b></h3>
-
-                </Col>
-                      */
-                 }
-         
                 <Col sm={7}>
                     <Image
                         src={image}
@@ -51,6 +41,7 @@ const SignIn = () => {
                                         type="email" 
                                         placeholder="Enter Email"  
                                     />
+                                    
                                 </Form.Group>
                           
                                 <Form.Group controlId="formBasicPassword">
