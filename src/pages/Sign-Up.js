@@ -18,6 +18,12 @@ export default function SignUp() {
     const [name,setName] = useState('show');//state for button name
     const [type,setType] = useState('password');//state for input type
 
+    const [emailUse,setEmailuse] = useState();//state for email use
+    const [error,setError] = useState();//state for error
+
+    const [email,setEmail] = useState();//state for email
+    const [password,setPassword] = useState();//state for password
+
     const toggleButton = (e) => {
         e.preventDefault();
         if(name === 'show'){
@@ -27,6 +33,34 @@ export default function SignUp() {
             setName('show');
             setType('password');
         }
+    }
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:4000/signup',{
+            method : 'POST',
+            mode : 'cors',
+            headers: {
+                   Accept : 'application/json',
+               'Content-Type' : 'application/json',
+               'Access-Control-Allow-Origin' : 'http://localhost:4000/login'
+             }, 
+             body: JSON.stringify({
+               email : email,
+               password : password
+           }),
+        })
+        .then(response => response.json())
+        .then((data) => {
+               if(data.message === 'successfully added'){
+                   //ROUTE HAS TO DONE HERE
+               } else if(data.message === 'email is in use'){
+                   setEmailuse('Email in use..use another one');
+               } 
+        })
+        .catch((error) => {
+            setError('Error');
+        })
     }
 
     return (
@@ -52,8 +86,9 @@ export default function SignUp() {
                                     <Form.Control 
                                         type="email" 
                                         placeholder="Enter Email"  
+                                        onChange={(e) => {setEmail(e.target.value)}}
                                     />
-                                    
+                                    <small>{emailUse}</small>
                                 </Form.Group>
                           
                                 <Form.Group controlId="formBasicPassword">
@@ -61,7 +96,9 @@ export default function SignUp() {
                                     <Form.Control 
                                         type={type} 
                                         placeholder="Enter Password"
+                                        onChange={(e) => {setPassword(e.target.value)}}
                                     />
+                                    <small>{error}</small>
                                         <button
                                             class="button button5"
                                             onClick={toggleButton}
@@ -73,6 +110,7 @@ export default function SignUp() {
                                     size="sm"
                                     variant="primary" 
                                     type="submit"
+                                    onClick={submitHandler}
                                     block>
                                  Create Account  
                                 </Button>
