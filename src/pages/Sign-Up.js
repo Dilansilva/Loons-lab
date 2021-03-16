@@ -20,7 +20,7 @@ export default function SignUp() {
 
     const toggleButton = (e) => {
         e.preventDefault();
-        if(name == 'show'){
+        if(name === 'show'){
             setName('hide');
             setType('text');
         } else{

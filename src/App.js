@@ -6,7 +6,7 @@ import Home from './pages/Home';//import Home page
 function App() {
   return (
     <div>
-      <Home/>
+      <SignUp/>
     </div>
   );
 }

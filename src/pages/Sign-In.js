@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import axios from 'axios';//import axios
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button,
@@ -20,19 +19,38 @@ const SignIn = () => {
     const[password,setPassword] = useState();//state for password
     const[error,setError] = useState();//state for error message
 
-    const Submit = () => {
-        axios.post('http://localhost:4000/login')
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-        });
+    const[wrongemail,setWrongemail] = useState();//state for wrong email
+    const[wrongpassword,setWrongpassword] = useState();
+
+    const Submit = (e) => {
+        e.preventDefault();
+         fetch('http://localhost:4000/login',{
+             method : 'POST',
+             mode : 'cors',
+             headers: {
+                    Accept : 'application/json',
+                'Content-Type' : 'application/json',
+                'Access-Control-Allow-Origin' : 'http://localhost:4000/login'
+              }, 
+              body: JSON.stringify({
+                email : email,
+                password : password
+            }),
+         })
+         .then(response => response.json())
+         .then((data) => {
+                if(data.message === 'valid login'){
+                    //ROUTE HAS TO DONE HERE
+                } else if(data.message === 'invalid login'){
+                    setWrongemail('Invalid Email!');
+                } else if(data.message === 'invalid password'){
+                    setWrongpassword('Invalid Password!');
+                }
+         })
+         .catch((error) => {
+             setError('Error');
+         })
+        
     }
 
     return (
@@ -57,8 +75,10 @@ const SignIn = () => {
                                     <Form.Control 
                                         type="email" 
                                         placeholder="Enter Email"  
+                                        onChange={(e) => {setEmail(e.target.value)}}
                                     />
-                                    
+                                    <small>{error}</small>
+                                    <small>{wrongemail}</small>
                                 </Form.Group>
                           
                                 <Form.Group controlId="formBasicPassword">
@@ -66,14 +86,17 @@ const SignIn = () => {
                                     <Form.Control 
                                         type="password" 
                                         placeholder="Enter Password"
+                                        onChange={(e) => {setPassword(e.target.value)}}
                                     />
+                                    <small>{wrongpassword}</small>
                                 </Form.Group>
 
-                            <div class="textAlign">
+                            <div className="textAlign">
                                 <Button 
                                     size="sm"
                                     variant="primary" 
                                     type="submit"
+                                    onClick={Submit}
                                     block>
                                     Login  
                                 </Button>
