@@ -1,6 +1,6 @@
 import React from 'react';
 
-const colomboPart = props => {
+const colomboPart = () => {
     return (
         <div>
             

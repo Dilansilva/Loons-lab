@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import axios from 'axios';//import axios
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button,
@@ -18,6 +19,21 @@ const SignIn = () => {
     const[email,setEmail] = useState();//state for email
     const[password,setPassword] = useState();//state for password
     const[error,setError] = useState();//state for error message
+
+    const Submit = () => {
+        axios.post('http://localhost:4000/login')
+            .then(function (response) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+        });
+    }
 
     return (
         <Jumbotron className="backgroundColor" fluid>
